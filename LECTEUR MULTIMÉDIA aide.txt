@@ -1,0 +1,466 @@
+====================================================================
+     GUIDE D'UTILISATION - LECTEUR MULTIMÉDIA (AUDIO & VIDÉO)
+====================================================================
+
+Bienvenue dans votre lecteur multimédia ! Cette application vous 
+permet de gérer et lire à la fois des fichiers AUDIO (MP3, WAV, 
+FLAC...) et VIDÉO (MP4, AVI, MKV...) depuis une seule interface 
+moderne, avec deux onglets indépendants.
+
+--------------------------------------------------------------------
+1. PRÉREQUIS (À installer avant de lancer l'application)
+--------------------------------------------------------------------
+Pour que l'application fonctionne correctement, vous devez avoir :
+- Python installé sur votre ordinateur (version 3.8 ou supérieure).
+- Le lecteur VLC Media Player installé (version 64-bit recommandée).
+  * Emplacement par défaut sur Windows : C:\Program Files\VideoLAN\VLC
+
+--------------------------------------------------------------------
+2. INSTALLATION DES DÉPENDANCES
+--------------------------------------------------------------------
+Ouvrez un terminal (invite de commandes) et tapez la commande 
+suivante pour installer les bibliothèques nécessaires :
+
+    pip install customtkinter python-vlc CTkListbox
+
+--------------------------------------------------------------------
+3. LANCEMENT DE L'APPLICATION
+--------------------------------------------------------------------
+- Placez le fichier de l'application (ex: lecteur_media.py) dans 
+  un dossier.
+- Ouvrez un terminal dans ce dossier.
+- Tapez la commande suivante :
+
+    python lecteur_media.py
+
+L'interface graphique devrait s'ouvrir.
+
+--------------------------------------------------------------------
+4. VUE D'ENSEMBLE DE L'INTERFACE
+--------------------------------------------------------------------
+
+L'application se compose de trois zones principales :
+
+  ┌──────────────────────────────────────────────────────────┐
+  │  🎵🎬 Lecteur multimédia    [Sombre][Clair][Système]    │  <- Barre supérieure
+  ├──────────────────────────────────────────────────────────┤
+  │  ┌── 🎵 Audio ─┬── 🎬 Vidéo ─┐                           │
+  │  │                          │                           │  <- Onglets
+  │  │  [Contenu de l'onglet]   │                           │
+  │  │                          │                           │
+  │  └──────────────────────────┘                           │
+  └──────────────────────────────────────────────────────────┘
+
+--------------------------------------------------------------------
+5. CHANGEMENT DE THÈME (En haut à droite)
+--------------------------------------------------------------------
+Un sélecteur vous permet de choisir entre 3 modes d'affichage :
+
+  🌙 Sombre  : Thème sombre permanent (idéal le soir).
+  ☀️ Clair   : Thème clair permanent (idéal en pleine journée).
+  💻 Système : Suit automatiquement le thème de Windows.
+
+Votre choix est mémorisé ! Au prochain lancement, l'application 
+s'ouvrira avec le même thème. Le thème s'applique aux DEUX onglets 
+en même temps.
+
+--------------------------------------------------------------------
+6. ONGLET 🎵 AUDIO (lecture de MP3 et autres)
+--------------------------------------------------------------------
+
+Cet onglet est conçu pour la musique. Il contient :
+
+  [A] GRANDE PLAYLIST (à gauche)
+  --------------------------------------------------
+  Toutes vos chansons sont listées ici. Cliquez sur une chanson 
+  pour la sélectionner.
+
+  [B] PANNEAU DE CONTRÔLE (à droite)
+  --------------------------------------------------
+  ─ FICHIERS ─
+  ➕ Ajouter des chansons : Sélectionnez un ou plusieurs fichiers 
+     audio (MP3, WAV, FLAC, OGG, M4A, AAC, WMA, OPUS).
+
+  📂 Importer .xspf : Charge une playlist existante (format VLC).
+     *Les fichiers non-audio sont ignorés automatiquement.*
+
+  💾 Exporter .xspf : Sauvegarde la playlist pour la réutiliser 
+     dans VLC ou dans cette application.
+
+  ─ ÉDITION ─
+  ➖ Supprimer sélection : Retire la chanson surlignée.
+  🗑️ Vider la playlist : Efface toute la playlist (avec confirmation).
+
+  ─ LECTURE ─
+  ▶️ Lecture : Démarre la lecture (ou reprend après une pause).
+  ⏸️ Pause   : Met en pause.
+  ⏹️ Stop    : Arrête complètement.
+  ⏮️ Précédent / ⏭️ Suivant : Navigue dans la playlist.
+
+  [C] VOLUME (en bas)
+  --------------------------------------------------
+  🔊 Utilisez le curseur pour régler le volume (0% à 100%).
+
+  [D] BARRE DE STATUT
+  --------------------------------------------------
+  Affiche l'état actuel (ex: "Lecture : ma_chanson.mp3").
+
+--------------------------------------------------------------------
+7. ONGLET 🎬 VIDÉO (lecture de films et clips)
+--------------------------------------------------------------------
+
+Cet onglet est conçu pour la vidéo. Il contient :
+
+  [A] ZONE VIDÉO (en haut, grand cadre noir)
+  --------------------------------------------------
+  C'est ici que s'affichent vos vidéos. Au démarrage, un message 
+  "Aucune vidéo en cours" apparaît. Il disparaît dès qu'une 
+  vidéo est lancée.
+
+  [B] PETITE PLAYLIST (en bas)
+  --------------------------------------------------
+  Liste compacte de vos vidéos.
+
+  [C] PANNEAU DE CONTRÔLE (à droite)
+  --------------------------------------------------
+  Identique à l'onglet Audio, MAIS avec un bouton supplémentaire :
+  
+  🖥️ Plein écran : Bascule la fenêtre en plein écran pour une 
+     expérience cinéma. Appuyez sur Échap pour quitter le mode 
+     plein écran (ou cliquez à nouveau sur le bouton).
+
+  Formats vidéo supportés :
+     MP4, AVI, MKV, MOV, WMV, FLV, WEBM, M4V, MPG, MPEG, 3GP, 
+     TS, VOB.
+
+--------------------------------------------------------------------
+8. FONCTIONNALITÉS AVANCÉES
+--------------------------------------------------------------------
+
+[A] PLAYLISTS SÉPARÉES
+--------------------------------------------------
+Les deux onglets sont TOTALEMENT INDÉPENDANTS :
+- Vous pouvez jouer une vidéo dans l'onglet Vidéo ET avoir une 
+  playlist audio prête dans l'onglet Audio.
+- Les volumes sont réglés séparément pour chaque onglet.
+
+[B] FORMAT XSPF (partage entre VLC et l'application)
+--------------------------------------------------
+Le format .xspf est le format standard utilisé par VLC. Vous 
+pouvez donc :
+- Créer une playlist dans VLC, l'exporter en .xspf, puis 
+  l'importer dans cette application.
+- Créer une playlist dans cette application, l'exporter, puis 
+  l'ouvrir directement dans VLC.
+
+⚠️ Bug corrigé : VLC sous Windows a un bug qui empêche 
+d'ouvrir les .xspf contenant des espaces (%20) dans les chemins. 
+Notre application exporte au bon format pour éviter ce problème.
+
+[C] MÉMORISATION DU THÈME
+--------------------------------------------------
+Votre choix de thème est sauvegardé dans le fichier :
+     %USERPROFILE%\.media_player_config.json
+
+Vous pouvez le modifier manuellement si vous le souhaitez.
+
+--------------------------------------------------------------------
+9. RACCOURCIS ET ASTUCES
+--------------------------------------------------------------------
+
+💡 Astuce : Vous pouvez ajouter des fichiers en plusieurs fois. 
+   L'application évite automatiquement les doublons.
+
+💡 Astuce : Sélectionnez plusieurs fichiers à la fois dans la 
+   fenêtre "Ajouter" en maintenant Ctrl ou Shift enfoncés.
+
+💡 Astuce : Pour passer d'un onglet à l'autre rapidement, cliquez 
+   simplement sur les onglets "🎵 Audio" ou "🎬 Vidéo" en haut.
+
+--------------------------------------------------------------------
+10. DÉPANNAGE (Résolution des problèmes courants)
+--------------------------------------------------------------------
+
+❌ Problème : "Erreur de DLL" ou "libvlc.dll introuvable".
+   Solution : 
+   - Vérifiez que VLC est installé dans C:\Program Files\VideoLAN\VLC.
+   - Python et VLC doivent être tous les deux en 64-bit (ou 32-bit).
+   - Si VLC est installé ailleurs, modifiez la variable "vlc_path" 
+     au début du code source.
+
+❌ PROBLÈME : "Erreur de DLL" ou "libvlc.dll introuvable"
+====================================================================
+
+SYMPTÔMES TYPIQUES
+--------------------------------------------------------------------
+Au lancement du script Python, tu vois un message d'erreur 
+ressemblant à l'un de ceux-ci :
+
+  • OSError: [WinError 126] Le module spécifié est introuvable. 
+    Error loading "libvlc.dll" or one of its dependencies.
+
+  • FileNotFoundError: Could not find module 'libvlc.dll'
+
+  • ImportError: DLL load failed while importing vlc
+
+  • NameError: name 'vlc' is not defined
+
+Ces erreurs signifient que Python ne trouve pas les fichiers 
+"libvlc.dll" et "libvlccore.dll" qui sont nécessaires pour 
+communiquer avec VLC.
+
+--------------------------------------------------------------------
+CAUSE 1 : VLC n'est pas installé (ou mal installé)
+--------------------------------------------------------------------
+
+EXPLICATION :
+La bibliothèque Python "python-vlc" ne CONTIENT PAS le moteur 
+audio/vidéo. C'est juste une "télécommande" qui envoie des ordres 
+au vrai VLC. Si VLC n'est pas installé, la télécommande n'a 
+personne à qui parler !
+
+COMMENT VÉRIFIER :
+1. Ouvre l'Explorateur de fichiers Windows.
+2. Navigue vers : C:\Program Files\VideoLAN\VLC
+3. Tu dois y trouver AU MINIMUM ces fichiers :
+       • vlc.exe
+       • libvlc.dll
+       • libvlccore.dll
+       • axvlc.dll (optionnel)
+4. Si le dossier "VideoLAN" n'existe pas → VLC n'est pas installé.
+
+SOLUTION :
+1. Télécharge VLC depuis le site officiel : 
+       https://www.videolan.org/vlc/
+2. Lance l'installateur et garde les options par défaut 
+   (le chemin d'installation DOIT être C:\Program Files\VideoLAN\VLC).
+3. Redémarre ton terminal Python et relance le script.
+
+--------------------------------------------------------------------
+CAUSE 2 : VLC est installé AILLEURS (autre disque, dossier custom)
+--------------------------------------------------------------------
+
+EXPLICATION :
+Par défaut, VLC s'installe dans C:\Program Files\VideoLAN\VLC, 
+mais tu as pu le mettre sur un autre disque (D:, E:...) ou dans un 
+dossier personnalisé lors de l'installation. Dans ce cas, Python 
+ne sait pas où chercher.
+
+COMMENT VÉRIFIER :
+1. Fais un clic droit sur le raccourci VLC de ton bureau.
+2. Choisis "Ouvrir l'emplacement du fichier".
+3. Note le chemin du dossier qui s'ouvre (ex: D:\Logiciels\VLC).
+
+SOLUTION :
+Ouvre le fichier "lecteur_media.py" avec un éditeur de texte 
+(Notepad++, VS Code...) et cherche cette ligne tout en haut :
+
+    vlc_path = r"C:\Program Files\VideoLAN\VLC"
+
+Remplace le chemin par le tien. Exemple si VLC est sur le D: :
+
+    vlc_path = r"D:\Logiciels\VLC"
+
+⚠️ IMPORTANT : 
+• Garde le "r" devant les guillemets (raw string).
+• N'oublie PAS les guillemets.
+• Utilise des backslashs "\" (pas des slashs "/").
+
+--------------------------------------------------------------------
+CAUSE 3 : Incompatibilité 32-bit / 64-bit
+--------------------------------------------------------------------
+
+EXPLICATION :
+Une DLL 32-bit ne peut PAS être lue par un programme 64-bit, et 
+inversement. Si tu as Python 64-bit et VLC 32-bit (ou l'inverse), 
+Python ne pourra jamais charger libvlc.dll, même si le chemin est 
+correct.
+
+COMMENT VÉRIFIER LA VERSION DE PYTHON :
+1. Ouvre un terminal (PowerShell ou cmd).
+2. Tape :
+       python --version
+3. Puis tape :
+       python -c "import platform; print(platform.architecture())"
+4. Tu verras par exemple : ('64bit', 'WindowsPE') → Python 64-bit
+
+COMMENT VÉRIFIER LA VERSION DE VLC :
+1. Ouvre VLC.
+2. Menu "Aide" → "À propos de VLC".
+3. Dans la fenêtre qui s'ouvre, tu verras la version et 
+   l'architecture :
+       • "VLC media player 3.0.20 Vetinari (64-bit)" → VLC 64-bit
+       • "VLC media player 3.0.20 Vetinari (32-bit)" → VLC 32-bit
+
+SOLUTION :
+Les deux doivent avoir la MÊME architecture :
+  • Python 64-bit → VLC 64-bit (le plus courant aujourd'hui).
+  • Python 32-bit → VLC 32-bit (rare, anciens systèmes).
+
+Si ce n'est pas le cas :
+1. Désinstalle VLC.
+2. Retélécharge la bonne version sur https://www.videolan.org/vlc/
+   (choisis la version "Win64" en priorité).
+3. Réinstalle et relance le script.
+
+--------------------------------------------------------------------
+CAUSE 4 : Chemin non ajouté aux DLL Windows
+--------------------------------------------------------------------
+
+EXPLICATION :
+Depuis Python 3.8, Windows n'autorise plus les programmes à 
+chercher des DLL dans des dossiers aléatoires pour des raisons 
+de sécurité. Il faut explicitement dire à Python où chercher. 
+C'est le rôle de la ligne "os.add_dll_directory()" dans le code.
+
+COMMENT VÉRIFIER :
+Regarde le début de ton fichier "lecteur_media.py". Tu dois voir :
+
+    import os
+    vlc_path = r"C:\Program Files\VideoLAN\VLC"
+    if os.path.exists(vlc_path):
+        os.add_dll_directory(vlc_path)
+
+Si ces lignes sont bien présentes et que le chemin est correct, 
+cette cause est écartée.
+
+SOLUTION :
+Si tu as déplacé le fichier VLC ou changé son nom, adapte la 
+variable "vlc_path". Vérifie aussi qu'il n'y a PAS d'espace 
+supplémentaire avant ou après le chemin.
+
+--------------------------------------------------------------------
+CAUSE 5 : python-vlc mal installé ou version trop ancienne
+--------------------------------------------------------------------
+
+EXPLICATION :
+La bibliothèque python-vlc est parfois installée en partie ou 
+dans une version incompatible avec ton Python 3.13 (très récent).
+
+COMMENT VÉRIFIER :
+Dans un terminal, tape :
+    pip show python-vlc
+
+Tu verras la version installée. La dernière en date (3.0.20123) 
+est recommandée.
+
+SOLUTION :
+Force la réinstallation propre :
+    pip uninstall python-vlc
+    pip install python-vlc --upgrade
+
+Puis relance le script.
+
+--------------------------------------------------------------------
+MÉTHODE DE DÉBOGAGE AVANCÉE
+--------------------------------------------------------------------
+
+Si malgré tout ça, rien ne fonctionne, lance ce mini-script 
+Python pour diagnostiquer le problème exact :
+
+    import os
+    print("Python exécutable :", os.sys.executable)
+    print("Version :", os.sys.version)
+    print()
+    
+    vlc_path = r"C:\Program Files\VideoLAN\VLC"
+    print("Chemin VLC :", vlc_path)
+    print("Le dossier existe :", os.path.exists(vlc_path))
+    print("libvlc.dll existe :", 
+          os.path.exists(os.path.join(vlc_path, "libvlc.dll")))
+    print("libvlccore.dll existe :", 
+          os.path.exists(os.path.join(vlc_path, "libvlccore.dll")))
+    print()
+    
+    try:
+        os.add_dll_directory(vlc_path)
+        import vlc
+        print("✅ VLC importé avec succès !")
+        print("Version de python-vlc :", vlc.__version__)
+        instance = vlc.Instance()
+        print("✅ Instance VLC créée !")
+    except Exception as e:
+        print("❌ Erreur :", e)
+
+Enregistre-le sous "diagnostic.py", place-le dans le même dossier 
+que ton application, et lance : python diagnostic.py
+
+Selon les lignes qui affichent ❌, tu sauras exactement où est 
+le problème.
+
+--------------------------------------------------------------------
+RÉCAPITULATIF : CHECKLIST DE VÉRIFICATION
+--------------------------------------------------------------------
+
+  ☐ VLC est installé dans C:\Program Files\VideoLAN\VLC
+  ☐ Le dossier contient bien "libvlc.dll" et "libvlccore.dll"
+  ☐ Python et VLC ont la même architecture (tous 64-bit ou 32-bit)
+  ☐ La ligne "os.add_dll_directory(vlc_path)" est dans le code
+  ☐ Le chemin dans "vlc_path" correspond à ton installation
+  ☐ "python-vlc" est installé : pip show python-vlc
+  ☐ Le script est lancé depuis un terminal avec "python app.py"
+  ☐ Aucune ancienne fenêtre VLC n'est ouverte en arrière-plan
+
+Si TOUTES ces cases sont cochées et que ça ne marche toujours pas, 
+poste le résultat du script "diagnostic.py" pour obtenir de l'aide.
+❌ Problème : La vidéo s'ouvre dans une fenêtre VLC séparée au lieu 
+   de s'afficher dans le cadre noir.
+   Solution :
+   - Attendez 1 à 2 secondes après l'ouverture : l'attachement de 
+     la sortie vidéo peut prendre un court instant.
+   - Vérifiez que vous êtes sous Windows (macOS ne supporte pas 
+     l'intégration vidéo nativement).
+   - Sous Linux, utilisez set_xwindow() au lieu de set_hwnd() 
+     dans le code.
+
+❌ Problème : VLC affiche "Votre média d'entrée ne peut être ouvert" 
+   lors de la lecture d'un .xspf.
+   Solution :
+   - Ré-exportez le fichier .xspf depuis notre application (elle 
+     corrige le bug des %20 dans les chemins de VLC).
+
+❌ Problème : Aucun son ne sort.
+   Solution :
+   - Vérifiez le curseur de volume dans l'application ET celui 
+     de votre ordinateur (en bas à droite).
+   - Testez le fichier dans VLC directement pour vérifier qu'il 
+     n'est pas corrompu.
+
+❌ Problème : Le mode "💻 Système" ne change pas.
+   Solution :
+   - Changez le thème de Windows dans 
+     Paramètres > Personnalisation > Couleurs.
+   - L'application se mettra à jour automatiquement.
+
+❌ Problème : L'application ne se lance pas.
+   Solution :
+   - Assurez-vous d'avoir installé toutes les dépendances (voir §2).
+   - Vérifiez que vous lancez bien "python lecteur_media.py".
+
+--------------------------------------------------------------------
+11. STRUCTURE DES FICHIERS
+--------------------------------------------------------------------
+
+L'application utilise ces fichiers :
+
+📄 lecteur_media.py          : Le code source de l'application.
+📄 Guide_Utilisateur.txt     : Ce fichier d'aide.
+📄 .media_player_config.json : Configuration (créé automatiquement).
+                              Situé dans %USERPROFILE%\
+                              (ex: C:\Users\VotreNom\)
+
+--------------------------------------------------------------------
+12. RÉSUMÉ DES BOUTONS
+--------------------------------------------------------------------
+
+  ➕  Ajouter des fichiers        📂  Importer une playlist .xspf
+  💾  Exporter la playlist        ➖  Supprimer la sélection
+  🗑️  Vider la playlist          ▶️  Lancer la lecture
+  ⏸️  Pause                       ⏹️  Arrêter la lecture
+  ⏮️  Chanson précédente         ⏭️  Chanson suivante
+  🔊  Volume                      🖥️  Plein écran (vidéo uniquement)
+
+====================================================================
+              Merci d'utiliser notre Lecteur Multimédia !
+                   Bonne musique et bon cinéma 🎵🎬
+====================================================================
